@@ -1,0 +1,8 @@
+Time Complexity:
+The recursive calculateFutureValue method calls itself once for every year, reducing years by 1 each time until it hits the base case (years == 0). This means the method runs n times, giving it a time complexity of O(n), where n is the number of years.
+It also uses O(n) space, because each recursive call adds a new frame to the call stack, and all of them stay in memory until the base case is reached.
+
+How to optimize it:
+Convert to an iterative (loop-based) solution — does the same calculation in O(n) time but only O(1) space, since it doesn't build up a call stack.
+Use the direct mathematical formula FV = PV × (1 + r)^n with Math.pow() — this avoids recursion entirely and runs in roughly O(log n) time, since Math.pow uses fast exponentiation internally.
+Use memoization if the same future-value calculations are repeated multiple times (e.g., comparing multiple growth rate scenarios) — store already-computed results so they don't need to be recalculated.
