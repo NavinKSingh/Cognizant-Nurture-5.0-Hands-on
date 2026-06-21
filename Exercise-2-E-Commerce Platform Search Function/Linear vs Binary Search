@@ -1,0 +1,3 @@
+Linear search just checks every item one by one — simple, but slow on large data. Binary search keeps cutting the data in half each time, so it's way faster, but it only works if the data is sorted first.
+
+For an e-commerce platform with thousands or millions of products, binary search is the better fit — it's much faster at scale, and sorting is usually a one-time cost handled by database indexing anyway. Linear search is fine only for small, unsorted lists.

@@ -1,0 +1,6 @@
+Big O notation basically tells us how an algorithm's speed changes as the data grows. It's like asking "if I give this algorithm 10x more data, how much slower will it get?" This lets us compare algorithms without actually running them.
+
+For searching:
+Best case – we get lucky and find it immediately.
+Average case – it's found somewhere in the middle, after checking a fair chunk of data.
+Worst case – it's at the very end, or not there at all, so we end up checking almost everything. This is the case we usually care about most, since it tells us the maximum time an algorithm could take.
