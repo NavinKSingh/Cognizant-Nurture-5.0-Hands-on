@@ -7,26 +7,33 @@ public class LoggingExample {
 
     public static void main(String[] args) {
 
-        logger.trace("TRACE: Application start ho raha hai...");
+        // 1. TRACE - finest level of detail
+        logger.trace("TRACE: Application is starting...");
 
+        // 2. DEBUG - useful during development
         logger.debug("DEBUG: Variable x = {}", 42);
 
-        logger.info("INFO: Application successfully started!");
+        // 3. INFO - general information
+        logger.info("INFO: Application started successfully!");
 
-        logger.warn("WARN: Memory usage 80% ho gayi hai!");
+        // 4. WARN - something might go wrong
+        logger.warn("WARN: Memory usage is at 80%!");
 
+        // 5. ERROR - something went wrong
         logger.error("ERROR: Database connection failed!");
 
+        // Real world example - logging with exception
         try {
             int result = 10 / 0;
         } catch (ArithmeticException e) {
-            logger.error("ERROR: Division by zero hua! Reason: {}", e.getMessage());
+            logger.error("ERROR: Division by zero occurred! Reason: {}", e.getMessage());
         }
 
+        // Using placeholders {}
         String user = "Navin";
         int age = 21;
-        logger.info("User {} ka age {} hai", user, age);
+        logger.info("User {} is {} years old", user, age);
 
-        logger.info("Application band ho raha hai. Bye!");
+        logger.info("Application is shutting down. Goodbye!");
     }
 }
