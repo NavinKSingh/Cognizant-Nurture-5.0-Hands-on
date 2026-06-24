@@ -4,10 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- BookRepository Bean -->
     <bean id="bookRepository"
           class="com.library.repository.BookRepository"/>
 
-    <bean id="bookService"
+    <!-- BookService Bean with Constructor Injection -->
+    <bean id="bookServiceConstructor"
+          class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository"/>
+    </bean>
+
+    <!-- BookService Bean with Setter Injection -->
+    <bean id="bookServiceSetter"
           class="com.library.service.BookService">
         <property name="bookRepository" ref="bookRepository"/>
     </bean>
