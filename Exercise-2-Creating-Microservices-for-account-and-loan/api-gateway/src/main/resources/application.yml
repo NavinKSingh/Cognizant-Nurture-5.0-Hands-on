@@ -1,0 +1,36 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # Account Service Route
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/accounts/**
+
+        # Loan Service Route
+        - id: loan-service
+          uri: lb://loan-service
+          predicates:
+            - Path=/loans/**
+
+# Eureka Client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+# Logging
+logging:
+  level:
+    org.springframework: info
+    com.cognizant.gateway: debug
+    org.springframework.cloud.gateway: debug
