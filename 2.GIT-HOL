@@ -1,0 +1,55 @@
+#!/bin/bash
+# ============================================================
+# Git Hands-On-Lab — .gitignore
+# Based on: 2__Git-HOL.docx
+# Goal: ignore ".log" files and a "log" folder using .gitignore
+# Run these inside your existing "GitDemo" Git repository
+# ============================================================
+
+# 0. Make sure you're inside your existing Git repo
+cd GitDemo
+
+# ------------------------------------------------------------
+# STEP 1: Create a ".log" file and a "log" folder
+# ------------------------------------------------------------
+
+echo "This is a sample log entry" > sample.log
+mkdir log
+echo "This is inside the log folder" > log/inside.log
+
+# ------------------------------------------------------------
+# STEP 2: Create/update .gitignore to ignore these
+# ------------------------------------------------------------
+
+echo "*.log" >> .gitignore
+echo "log/" >> .gitignore
+
+# Verify .gitignore content
+cat .gitignore
+
+# ------------------------------------------------------------
+# STEP 3: Check git status (sample.log, log/ should NOT show up
+# as untracked — only .gitignore itself should show as new/modified)
+# ------------------------------------------------------------
+
+git status
+
+# ------------------------------------------------------------
+# STEP 4: Stage and commit the .gitignore file
+# ------------------------------------------------------------
+
+git add .gitignore
+git commit -m "Add .gitignore to ignore .log files and log folder"
+
+# ------------------------------------------------------------
+# STEP 5: Verify final status — working directory should be clean
+# (except for the ignored files, which won't be listed at all)
+# ------------------------------------------------------------
+
+git status
+
+# ------------------------------------------------------------
+# STEP 6: Push the change to the remote GitLab repository
+# ------------------------------------------------------------
+
+git push origin master
