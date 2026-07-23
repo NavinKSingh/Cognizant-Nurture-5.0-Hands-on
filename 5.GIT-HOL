@@ -1,0 +1,27 @@
+#!/bin/bash
+# ============================================================
+# Git Hands-On-Lab — Clean up and push back to remote Git
+# Based on: 5__Git-HOL.docx
+# Run these inside your existing "GitDemo" Git repository
+# ============================================================
+
+cd GitDemo
+
+# 1. Verify if master is in a clean state
+git status
+
+# 2. List out all the available branches
+git branch -a
+
+# 3. Pull the remote git repository into master
+git pull origin master
+
+# 4. Push the pending changes (from the previous lab, Git-T03-HOL_002)
+#    to the remote repository
+git push origin master
+
+# 5. Observe if the changes are reflected in the remote repository
+#    -> Open the GitDemo project on GitLab in the browser and verify
+#       that hello.xml, .gitignore, and the merge commit are visible.
+#    (Optional CLI check of the latest remote-tracking log)
+git log --oneline --graph --decorate --all
