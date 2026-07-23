@@ -1,0 +1,92 @@
+#!/bin/bash
+# ============================================================
+# Git Hands-On-Lab — Commands
+# Based on: 1__Git-HOL.docx
+# Run these commands one by one in Git Bash (Windows)
+# ============================================================
+
+# ------------------------------------------------------------
+# STEP 1: Setup your machine with Git Configuration
+# ------------------------------------------------------------
+
+# 1. Check Git client is installed properly
+git --version
+
+# 2. Configure user level configuration of user ID and email ID
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+# 3. Check if the configuration is properly set
+git config --list
+
+
+# ------------------------------------------------------------
+# STEP 2: Integrate notepad++.exe to Git and make it default editor
+# ------------------------------------------------------------
+
+# 1. Check if notepad++.exe executes from Git bash
+notepad++
+
+# (If not recognized, add Notepad++ install path to the
+#  Windows PATH environment variable via:
+#  Control Panel -> System -> Advanced System Settings ->
+#  Environment Variables -> Path -> Edit -> Add path)
+
+# 2. After adding to PATH, exit and reopen Git bash, then run:
+notepad++
+
+# 3. Create an alias command for notepad++.exe
+echo 'alias notepad="/c/Program Files/Notepad++/notepad++.exe"' >> ~/.bashrc
+source ~/.bashrc
+
+# 4. Configure notepad++ as the default editor for Git
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+# 5. Verify if notepad++ is the default editor
+git config -e
+
+# Show the entire global configuration
+git config --global --list
+
+
+# ------------------------------------------------------------
+# STEP 3: Add a file to source code repository
+# ------------------------------------------------------------
+
+# 1. Create a new project "GitDemo"
+mkdir GitDemo
+cd GitDemo
+git init
+
+# 2. Verify the repository was initialized (shows hidden .git folder)
+ls -la
+
+# 3. Create a file "welcome.txt" and add content to it
+echo "Welcome to Git" > welcome.txt
+
+# 4. Verify if the file "welcome.txt" is created
+ls -la
+
+# 5. Verify the content
+cat welcome.txt
+
+# 6. Check the status of the working directory
+git status
+
+# 7. Make the file to be tracked by Git (stage it)
+git add welcome.txt
+
+# 8. Commit with a multi-line comment (opens the default editor - Notepad++)
+git commit
+
+# 9. Check if local and working directory are in sync
+git status
+
+# 10. Signup on GitLab and create a remote repository "GitDemo"
+#     (done via GitLab website, not a command)
+
+# 11. Pull the remote repository
+git pull origin master
+
+# 12. Push the local repository to remote
+git push origin master
